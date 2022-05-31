@@ -32,71 +32,71 @@ const routes = [
     component: HomePage
   },
   {
-    path: '/sabil_pwa/auth1',
+    path: '/auth1',
     component: AuthStep1
   },
   {
-    path: '/sabil_pwa/auth2',
+    path: '/auth2',
     component: AuthStep2
   },
   {
-    path: '/sabil_pwa/auth3',
+    path: '/auth3',
     component: AuthStep3
   },
   {
-    path: '/sabil_pwa/main',
+    path: '/main',
     component: MainPage
   },
   {
-    path: '/sabil_pwa/supportnav',
+    path: '/supportnav',
     component: SupportNav
   },
   {
-    path: '/sabil_pwa/ask',
+    path: '/ask',
     component: AskQuestion
   },
   {
-    path: '/sabil_pwa/profilenav',
+    path: '/profilenav',
     component: ProfileNav
   },
   {
-    path: '/sabil_pwa/profilenav',
+    path: '/profilenav',
     component: ProfileNav
   },
   {
-    path: '/sabil_pwa/profilesett',
+    path: '/profilesett',
     component: ProfileSett
   },
   {
-    path: '/sabil_pwa/koran',
+    path: '/koran',
     component: KoranPage
   },
   {
-    path: '/sabil_pwa/news',
+    path: '/news',
     component: NewsComponent
   },
   {
-    path: '/sabil_pwa/imam',
+    path: '/imam',
     component: Imamcomponent
   },
   {
-    path: '/sabil_pwacalend',
+    path: '/calend',
     component: Calendar
   },
   {
-    path: '/sabil_pwa/blago',
+    path: '/blago',
     component: BlagoComp
   },
   {
-    path: '/sabil_pwa/tariff',
+    path: '/tariff',
     component: MyTariff
   },
   {
-    path: '/sabil_pwa/blagofull',
+    path: '/blagofull',
     component: BlagoArticle
   },
   {
-    path: '/sabil_pwa/voteresult',
+    path: '/voteresult',
     component: VoteResult
   },
   // {
