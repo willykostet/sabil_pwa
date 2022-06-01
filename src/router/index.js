@@ -14,6 +14,8 @@ import ProfileSett from '../components/ProfileSett.vue'
 import Calendar from '../components/Calendar.vue'
 import MyTariff from '../components/MyTariff.vue'
 import BlagoComp from '../components/BlagoComp.vue'
+
+// import { publicPath } from 'vue.config'
 import Imamcomponent from '../components/Imamcomponent.vue'
 import KoranPage from '../components/KoranPage.vue'
 import BlagoArticle from '../components/BlagoArticle.vue'
@@ -21,14 +23,11 @@ import BlagoArticle from '../components/BlagoArticle.vue'
 Vue.use(VueRouter)
 
 const routes = [
-  {
-    path: '/',
-    redirect: {name: 'home'}
-  },
+ 
   {
 
     name: 'home',
-    path: '/sabil_pwa/',
+    path: '/',
     component: HomePage
   },
   {
@@ -104,10 +103,12 @@ const routes = [
   //   component: ConfComp
   // },
 ]
-
 const router = new VueRouter({
   mode: 'history',
-  base: '/',
+  base: process.env.NODE_ENV === 'production'
+  ? '/sabil_pwa/'
+  : '/' ,
+  /* ... */
   routes
 })
 
