@@ -23,6 +23,5 @@
 <style lang="css">
 .tab{ 
     width: 10px;
-    padding: 0;
 }
 </style>

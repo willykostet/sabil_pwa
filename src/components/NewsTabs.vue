@@ -53,7 +53,7 @@
 
   ul.tabs__header {
     display: flex;
-    width: 300px;
+    width: 80%;
     list-style: none;
     margin: 0 auto;
     position: relative;
@@ -72,6 +72,7 @@ color: #2DA9A1;
     box-shadow: 0px -2px 4px rgba(0, 0, 0, 0.25);
     border-radius: 10px;
     margin: 2px;
+    padding: 5%;
     display: inline-block;
     cursor: pointer;
   }
@@ -85,10 +86,11 @@ color: #2DA9A1;
   .tab {    
     display: inline-block;
     color: black;
-    padding: 0 20px;
+    /* padding: 0 20px; */
     padding-top: 1%;
-    padding-left: 9%;
-    min-width: 300px;
+    margin: 0 auto;
+    padding-left: 1%;
+    min-width: 90%;
     border-radius: 10px;
     /* min-height: 400px; */
   }

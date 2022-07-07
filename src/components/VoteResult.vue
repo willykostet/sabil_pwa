@@ -3,31 +3,33 @@
 
 <header style="display: flex; justify-content:space-between;">
   <div class="header-mask"></div>
-  <a href="/profilenav">  <div class="user" style="display: flex">
+    <router-link to ="/profilenav">  <div class="user" style="display: flex">
     <img  :src="getUserIconPath()" alt="" class="user-icon">
 
     <p class="user-name">{{userName}}</p>
-  </div></a>
+  </div></router-link>
   <div class="controls" style="display: flex">
     <img src="../assets/Gamburger.png" class="header-icon"/>
-        <a href="/supportnav">
-    <img @click="goSupport()" src="../assets/Gear.svg" alt="" class="header-icon"></a>
+       <router-link to="/supportnav">
+    <img @click="goSupport()" src="../assets/Gear.svg" alt="" class="header-icon"></router-link>
     <img src="../assets/Bell.svg" alt="" class="header-icon">
   </div>
 </header>
 
-<a href="#" onClick="history.go(-1)"><div  class="back" @click="back()">
+<a href="#" onClick="javascript:history.go(-1); return false"><div  class="back" @click="back()">
 Статистика голосования
 </div></a>
 
+<div class="cont" style="display:flex; flex-direction: column; align-items:center">
+<img src="../assets/approve.svg" alt="">
+<h1>Благодарим за голос</h1>
+<p>В этом месяце Вы проголосовали за проект “Проект установки имплантов в позвоночник Севиле”</p>
 
-
-<img src="../assets/vote1.svg" alt="">
-
-<img src="../assets/vote2.svg" alt="">
 
 
 <img src="../assets/Graf1.jpg" alt="">
+<button onClick="javascript:history.go(-1); return false">Вернуться</button>
+</div>
 
 
 
@@ -43,14 +45,14 @@
 
 <footer style="display: flex; justify-content: space-between; padding: 5px 10px 10px 25px">
 <div class="left"> 
-  <a href="/koran"><img src="../assets/koran-black.svg" alt="" class="footer-koran footer-icon"></a>
- <a href="/imam"><img src="../assets/ask-active.svg" alt="" class="footer-question footer-icon"></a> 
+  <router-link to="/koran"><img src="../assets/koran-black.svg" alt="" class="footer-koran footer-icon"></router-link>
+ <router-link to="/imam"><img src="../assets/imam-footer.svg" alt="" class="footer-question footer-icon"></router-link> 
  </div>
- <a href="/main">
- <img src="../assets/menu-logo.svg" width="40" height="40" alt=""></a>
+ <router-link to="/main">
+ <img src="../assets/menu-logo.svg" width="40" height="40" alt=""></router-link>
 <div class="right">  
- <a href="/calend"><img src="../assets/Icon3.svg" alt="" class="footer-calend footer-icon" @click="openCalend()"></a>
- <a href="/blago"><img src="../assets/Icon4.svg" alt="" class="footer-blagos footer-icon"></a> 
+ <router-link to="/calend"><img src="../assets/Icon3.svg" alt="" class="footer-calend footer-icon" @click="openCalend()"></router-link>
+ <router-link to="/blago"><img src="../assets/blago-active.svg" alt="" class="footer-blagos footer-icon"></router-link> 
   </div>
 
 </footer>
@@ -80,13 +82,50 @@
   }
 </script>
 <style scoped lang="scss">
+button {
+  font-family: 'Montserrat';
+font-style: normal;
+font-weight: 400;
+font-size: 14px;
+line-height: 17px;
+color: #39B2BA;
+background: rgba(57, 178, 186, 0.2);
+mix-blend-mode: normal;
+box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+border-radius: 7px;
+padding: 3% 15%;
+}
+div.cont {
+  padding: 3%;
+  gap: 10px;
+}
+h1 {
+  font-family: 'Montserrat';
+font-style: normal;
+font-weight: 700;
+font-size: 14px;
+line-height: 17px;
+text-align: center;
+text-transform: uppercase;
 
+color: #2DA9A1;
+}
+p{
+  font-family: 'Montserrat';
+font-style: normal;
+font-weight: 400;
+font-size: 9px;
+line-height: 11px;
+text-align: center;
+
+color: #000000;
+}
 .back {
     background-color: #F9F9F9;
     font-weight: 400;
 font-size: 10px;
 line-height: 12px;
-padding: 10px 40px;
+padding: 15px 40px;
 text-align: left;
 position: relative;
 
@@ -157,7 +196,7 @@ footer{
   position: fixed;
   height: 55px;
   bottom: 0;
-  width: 375px;
+  width: 100%;
    left: 0;
   //  background-image: url('../assets/menu-logo.svg');
    background-position: center;

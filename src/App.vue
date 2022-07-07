@@ -199,4 +199,12 @@ nav a.router-link-exact-active {
 .fade-leave-to {
   opacity: 0;
 }
+.back {
+  font-size: 15px !important;
+  padding: 5% 12% !important;
+}
+.support-page ul li {
+  font-size: 15px !important;
+  padding: 5% !important;
+}
 </style>

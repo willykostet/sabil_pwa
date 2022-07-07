@@ -1,0 +1,436 @@
+<template>
+<div class="support-page" style="padding-top:5%">
+
+
+<div @click="showMenu=false" v-if="showModal || showMenu || showNots || showShare" style="z-index: 999;;position:absolute;display:inline;top:-20%; left:0;width:100%; height:120vh;opacity:0.3;background-color:black;overflow-y:hidden"></div>
+<ul v-if="showMenu" style="z-index: 10000;position:fixed; width:70%; right:0; bottom: 0; top: 0;background: white;">
+<li><router-link to="/news">Новости</router-link></li>
+<li><router-link to="/tranz">Транзакции</router-link></li>
+<li> <router-link to="/myconn">Моя связь</router-link> </li>
+
+<li><router-link to="/supportnav">Техподдержка</router-link></li>
+</ul>
+<div v-if="showNots"  style="position:fixed; margin-top: 20%; z-index: 1000; box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+ top: 0; text-align: left; right: 0; bottom: 5%; height:min-content; width:80%; background-color: white; padding: 8% 5%; ">
+<img @click="showNots=false" style="position:absolute; right:5%" src="../assets/X.svg" alt="">
+
+<p style="
+font-family: 'Montserrat';
+font-style: normal;
+font-weight: 400;
+font-size: 11px;
+line-height: 13px;
+
+color: #000000; margin-bottom: 5%;">Последние непрочитанные уведомления</p>
+<div style="display:flex; border-bottom: 1px solid #DADADA; padding: 5% 0; gap:1%; z-index: 1000;">
+<div>
+  <p style="color: #2DA9A1; font-weight: 700;
+font-size: 9px;
+line-height: 11px;">Вопрос имаму</p>
+  <p style="font-weight: 400;
+font-size: 11px;
+line-height: 13px;
+
+color: #000000;">Получен ответ на вопрос имаму</p>
+</div>
+
+<p style="font-weight: 400;
+font-size: 9px;
+line-height: 11px;color: #363636;">15:30 - 02.03.2022</p>
+</div>
+<div style="display:flex; border-bottom: 1px solid #DADADA; padding: 5% 0; gap:1%; z-index: 1000;">
+<div>
+  <p style="color: #2DA9A1; font-weight: 700;
+font-size: 9px;
+line-height: 11px;">Вопрос имаму</p>
+  <p style="font-weight: 400;
+font-size: 11px;
+line-height: 13px;
+
+color: #000000;">Получен ответ на вопрос имаму</p>
+</div>
+
+<p style="font-weight: 400;
+font-size: 9px;
+line-height: 11px;color: #363636;">15:30 - 02.03.2022</p>
+</div>
+<router-link to="/nots"><p style="color:#39B2BA; text-align:right;font-size: 9px;
+line-height: 11px; margin-top:3%">Посмотреть все уведомления</p></router-link>
+
+</div>
+<header style="display: flex; justify-content:space-between;">
+  <div class="header-mask"></div>
+    <router-link to ="/profilenav">  <div class="user" style="display: flex">
+    <img  :src="getUserIconPath()" alt="" class="user-icon">
+
+    <p class="user-name">{{userName}}</p>
+  </div></router-link>
+  <div class="controls" style="display: flex">
+      <img @click="showMenu=true" src="../assets/Gamburger.png" class="header-icon"/>
+    <router-link to="/supportnav">
+    <img @click="goSupport()" src="../assets/Gear.svg" alt="" class="header-icon"></router-link>
+    <img @click="showNots=true" src="../assets/Bell.svg" alt="" class="header-icon">
+  </div>
+
+</header>
+<a href="#" onClick="javascript:history.go(-1); return false"><div  class="back" @click="back()">
+Моя связь
+</div></a>
+
+<h1>Моя связь</h1>
+
+      <div style="display:flex; justify-content: space-between; margin: 10px 30px;" >
+          <p style="font-family: 'Montserrat';
+font-style: normal;
+font-weight: 400;
+font-size: 10px;
+line-height: 12px;color: #000000;">Текущий платежный баланс</p>
+          <p style="font-family: 'Montserrat';
+font-style: normal;
+font-weight: 700;
+font-size: 10px;
+line-height: 12px;">500 ₽</p>
+        </div>
+
+        <div style="display:flex; justify-content: space-between; margin:  0 30px;"  >
+          <p style="font-family: 'Montserrat';
+font-style: normal;
+font-weight: 400;
+font-size: 10px;
+line-height: 12px;color: #000000;">Период действия тарифа</p>
+          <p style="font-family: 'Montserrat';
+font-style: normal;
+font-weight: 700;
+font-size: 10px;
+line-height: 12px;"> до 20.07.2022</p>
+        </div>
+
+
+
+
+
+
+<div class="tariff">
+<div><img src="../assets/trubka.svg" alt=""> <p>50 минут</p></div> 
+<div><img src="../assets/trubka.svg" alt=""> <p>10 Гб</p></div> 
+<div><img src="../assets/trubka.svg" alt=""> <p>200 СМС</p></div> 
+</div>
+
+
+
+
+
+<div style="display:flex; justify-content: space-between; gap: 5%;   margin: 5% 7%">
+<router-link to="/tranz"><button  style="font-family: 'Montserrat';
+font-style: normal;
+font-weight: 400;
+font-size: 15px;
+line-height: 18px;background: rgba(57, 178, 186, 0.2);border-radius: 7px; width: 150px">Пополнить счет</button></router-link>
+<router-link to="/uslugi"><button  style="font-family: 'Montserrat';
+font-style: normal;
+font-weight: 400;
+font-size: 15px;
+line-height: 18px;background: rgba(57, 178, 186, 0.2);border-radius: 7px; width: 150px;">Услуги</button></router-link>
+</div>
+
+<footer style="display: flex; justify-content: space-between; padding: 5px 10px 10px 25px">
+<div class="left"> 
+  <router-link to="/koran"><img src="../assets/koran-black.svg" alt="" class="footer-koran footer-icon"></router-link>
+ <router-link to="/imam"><img src="../assets/imam-footer.svg" alt="" class="footer-question footer-icon"></router-link> 
+ </div>
+ <router-link to="/main">
+ <img src="../assets/menu-logo.svg" width="40" height="40" alt=""></router-link>
+<div class="right">  
+ <router-link to="/calend"><img src="../assets/Icon3.svg" alt="" class="footer-calend footer-icon" @click="openCalend()"></router-link>
+ <router-link to="/blago"><img src="../assets/Icon4.svg" alt="" class="footer-blagos footer-icon"></router-link> 
+  </div>
+
+</footer>
+</div>
+</template>
+
+<script>
+// import Datepicker from 'vuejs-datepicker';
+import Vue from "vue";
+import vSelect from "vue-select";
+Vue.component("v-select", vSelect);
+import "vue-select/dist/vue-select.css";
+  export default {
+
+    name: 'HelloWorld',
+    data: () => ({
+          showMenu: false,
+      showModal:false,
+      showShare: false,
+      showNots:false,
+      userName: 'Булат',
+      userIconPath: 'https://upload.wikimedia.org/wikipedia/commons/9/99/Sample_User_Icon.png',
+     
+    }),
+    methods: {
+      getUserIconPath(){
+        return this.userIconPath
+      },
+      back(){
+         this.$emit('back', false)
+      }
+    },
+  
+  }
+</script>
+<style scoped lang="scss">
+.back {
+    background-color: #F9F9F9;
+    font-weight: 400;
+font-size: 10px;
+line-height: 12px;
+
+padding: 10px 40px;
+text-align: left;
+position: relative;
+
+}
+.back::before {
+    position: absolute;
+    content: '';
+    width: 15px;
+    height: 15px;
+    background-image: url('../assets/back-arrow.svg');
+    left: 20px;
+
+}
+
+
+.tariff {
+  margin: 20px;
+  font-family: 'Montserrat';
+font-style: normal;
+font-weight: 400;
+font-size: 10px;
+line-height: 12px;
+
+color: #000000;
+
+
+   border-bottom: 0.5px solid #AFAFAF;
+}
+.tariff div {
+    padding: 10px;
+  display: flex;
+ align-items: flex-start;
+ gap: 5px;
+}
+h1 {
+    font-family: 'Montserrat';
+font-style: normal;
+font-weight: 700;
+font-size: 16px;
+line-height: 20px;
+display: block;
+text-align: left;
+padding-bottom: 20px;
+margin: 20px;
+border-bottom: 0.5px solid #AFAFAF;;
+color: #39B2BA;
+}
+.heading {
+  margin: 20% auto;
+  margin-bottom: 0;
+ font-family: 'Montserrat';
+font-style: normal;
+font-weight: 700;
+font-size: 14px;
+line-height: 17px;
+text-align: center;
+text-transform: uppercase;
+
+color: #2DA9A1;
+}
+ul{
+  padding: 2% 5% !important;
+  font-family: 'Montserrat';
+font-style: normal;
+font-weight: 400;
+font-size: 12px;
+line-height: 15px;
+}
+li {
+  display: flex;
+  text-align: left;
+  border-bottom:  1px solid #DADADA;
+
+  padding: 1%;
+}
+ul li div:last-child {
+  text-align: center;
+}
+button {
+    background: rgba(57, 178, 186, 0.2);
+box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+border-radius: 3px;
+    font-family: 'Montserrat';
+font-style: normal;
+font-weight: 400;
+font-size: 9px;
+line-height: 11px;
+align-items: center;
+text-align: center;
+width: 80%;
+padding: 10px;
+margin: 0 auto;
+color: #39B2BA;
+}
+.select {
+    margin: 10%;
+    padding: 30px;
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+
+position: relative;
+    height: min-content;
+}
+select {
+    box-shadow: inset 0px 2px 3px rgba(0, 0, 0, 0.25);
+border-radius: 5px;
+font-family: 'Montserrat';
+font-style: normal;
+font-weight: 400;
+font-size: 8px;
+line-height: 10px;
+text-transform: capitalize;
+color: #000000;
+width: 100%
+}
+.select-item {
+    display: inline-flex;
+    margin: 5% auto;
+}
+label {
+    text-align: left;
+    padding: 5px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    font-family: 'Montserrat';
+font-style: normal;
+font-weight: 700;
+font-size: 14px;
+line-height: 17px;
+/* identical to box height */
+
+text-transform: uppercase;
+
+color: #2DA9A1;
+}
+ul {
+    padding: 10px;
+}
+ul li {
+    list-style: none;
+    gap: 5%;
+
+}
+
+.searchbar input {
+    background: #FFFFFF;
+box-shadow: inset 0px 1px 4px rgba(0, 0, 0, 0.25);
+border-radius: 5px;
+// position: relative;
+}
+.searchbar {
+    position: relative;
+    margin-top: 2%;
+}
+
+.back {
+    background-color: #F9F9F9;
+    font-weight: 400;
+font-size: 10px;
+line-height: 12px;
+padding: 10px 40px;
+text-align: left;
+position: relative;
+
+}
+.back::before {
+    position: absolute;
+    content: '';
+    width: 15px;
+    height: 15px;
+    background-image: url('../assets/back-arrow.svg');
+    left: 20px;
+
+}
+
+
+
+.user {
+  display: flex;
+  align-items: flex-end;
+}
+.user-icon, .header-icon{
+
+  width: 25px;
+  background-repeat: no-repeat;
+  height: 25px;
+  color: black;
+}
+.user-name {font-weight: 700;
+font-size: 14px; margin-left: 5px;
+line-height: 17px; color: white;}
+.header-icon{
+  margin-right: 10px;
+}
+.support-page {
+  padding-top: 0 !important;
+  margin-top: 12%;
+  background: white;
+  // background-image: linear-gradient(rgba(57, 178, 186, 0.68), rgba(57, 178, 186, 0.68)), url("../assets/Pattern.png");
+  height: 100vh;
+  background-repeat: repeat;
+    position: relative;
+}
+header{
+  background-color: #39B2BA;
+  position: fixed;
+  width: 100%;
+  padding: 10px 20px;
+  left: 0;
+  top: 0;
+}
+.header-mask{
+  
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  opacity: 0.15;
+  height: 100%;
+    z-index: -1;
+  background-image: url('../assets/Pattern.png');
+  content: '';
+}
+.user, .controls {
+  width: min-content;
+  margin: 0;
+}
+
+footer{
+  position: fixed;
+  height: 55px;
+  bottom: 0;
+  width: 100%;
+   left: 0;
+  //  background-image: url('../assets/menu-logo.svg');
+   background-position: center;
+   box-shadow: 0px -3px 4px rgba(0, 0, 0, 0.2);
+}
+.footer-icon{
+  padding: 10px;
+}
+p, h3, b {
+  font-size: 12px !important;
+}
+</style>

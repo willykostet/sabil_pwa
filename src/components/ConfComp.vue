@@ -40,7 +40,7 @@
 <footer style="display: flex; justify-content: space-between; padding: 5px 10px 10px 25px">
 <div class="left"> 
   <a href="/koran"><img src="../assets/koran-black.svg" alt="" class="footer-koran footer-icon"></a>
- <a href="/imam"><img src="../assets/ask-active.svg" alt="" class="footer-question footer-icon"></a> 
+ <a href="/imam"><img src="../assets/.svg" alt="" class="footer-question footer-icon"></a> 
  </div>
  <a href="/main">
  <img src="../assets/menu-logo.svg" width="40" height="40" alt=""></a>

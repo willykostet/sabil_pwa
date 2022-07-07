@@ -1,56 +1,17 @@
 <template lang="html">
   <div>
-  <div style="display: flex; justify-content: center;">
-    <p class="category">Молитва</p>
-
-    <p class="category">Молитва</p>
-    <p class="category">Молитва</p>
-
-    <p class="category">Молитва</p>
-
-    <p class="category">Молитва</p>
-  </div>
-<div>
   
-</div>
-<div style="display: flex; flex-direction: column; justify-content: left;">
-<app-accordion class="mb-4">
-      <template v-slot:title>
-        <span class="">Nullam ac felis laoreet?</span>
-        <p class="heading-desc">Nullam ac felis laoreet, tempus nisl nec, vehicula orci. Nulla id turpis vestibulum, feugiat nibh vitae, malesuada justo. </p>
-      </template>
-      <template v-slot:content>
-        <p class="inner-text">
-         Nullam ac felis laoreet, tempus nisl nec, vehicula orci. Nulla id turpis vestibulum, feugiat nibh vitae, malesuada justo. 
-        </p>
-         <p class="heading-desc"></p>
-      </template>
-    </app-accordion>
-
-    <app-accordion class="mb-8">
-      <template v-slot:title>
-        <span >Nullam ac felis laoreet?</span>
-                <p class="heading-desc">Nullam ac felis laoreet, tempus nisl nec, vehicula orci. Nulla id turpis vestibulum, feugiat nibh vitae, malesuada justo. </p>
-
-      </template>
-      <template v-slot:content>
-        <p class="inner-text">
-         Nullam ac felis laoreet, tempus nisl nec, vehicula orci. Nulla id turpis vestibulum, feugiat nibh vitae, malesuada justo. 
-        </p>
-      </template>
-    </app-accordion>
-</div>
   </div>
   
 </template>
 
 <script>
-import AppAccordion from "./AppAccordion.vue";
+// import AppAccordion from "./AppAccordion.vue";
 
   export default {
      components: {
 
-    AppAccordion,
+    // AppAccordion,
   },
     data () {
       return {
@@ -67,10 +28,11 @@ import AppAccordion from "./AppAccordion.vue";
 .category { 
 font-family: 'Monserrat';
 font-style: normal;
-font-weight: 400;
-font-size: 9px;
-line-height: 9px;
-margin: 0.3em;
+font-weight: 500;
+font-size: 13px;
+line-height: 16px;
+margin: 0.1em;
+margin-bottom: 1em;
 color: #39B2BA;
 border: 0.5px solid #39B2BA;
 border-radius: 3px;

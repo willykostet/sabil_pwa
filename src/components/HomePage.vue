@@ -1,12 +1,12 @@
 <template>
 <div class="header">
-  <img class="logo" src="../assets/homeLogo.svg" alt="">
+  <img class="logo" src="../assets/homelogoo.png" alt="">
 
   <img class="sabil" src="../assets/sabi.svg" alt="">
   <img class="dsid" src="../assets/dlyaslov.svg" alt="">
   
-  <a href="/auth1">
-    <button @click="login()" id="login" style="display: block">Войти в приложение</button></a>
+  <router-link to="/auth1">
+    <button @click="login()" id="login" style="display: block">Войти в приложение</button></router-link>
     <p style="font-size: 13px;
 line-height: 15px;color:white; margin-top:30px">Пройти регистрацию по номеру телефона</p>
     <div class="header-mask"></div>
@@ -47,6 +47,8 @@ img {
   height: 100%;
   background-color: #39B2BA;
   position: fixed;
+  flex-direction: column;
+  display: flex;
   width: 100%;
   padding: 10px 20px;
   left: 0;
@@ -66,12 +68,12 @@ img {
   content: '';
 }
 .logo {
-  margin-top: 90px;
+  margin-top: 20%;
 
 }
 .sabil{
-  margin-top: 26px;
-  margin-bottom: 8px;
+  margin-top: 10%;
+  margin-bottom: 2%;
 }
 .dsid {
   margin-bottom: 20%;
