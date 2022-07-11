@@ -4,8 +4,6 @@ module.exports = defineConfig({
     'vuetify'
   ],
 
-  publicPath: process.env.NODE_ENV === 'production'
-  ? '/sabil_pwa/'
-  : '/' ,
+  publicPath: '/sabil_pwa/'
  
 })

@@ -1,11 +1,11 @@
 <template>
-<div style="padding-top:50px">
-    <img src="../assets/Logo.svg" alt="">
+<div class="auth1">
+    <img style="margin-top: 10%" src="../assets/Logo.png" alt="">
     <p class="auth-desc" style="font-size:15px;color: #CCB282;">Шаг 1 из 3</p>
     <p class="auth-desc" style="font-size:14px; color:#39B2BA; width:350px; margin: 0 auto">Для регистрации в приложении 
 введите ваш номер мобильного телефона:</p>
 
-<the-mask mask="+# (###)-(###)-(##)-(##)" value="7#######" type="tel" class="tel" masked="true" placeholder="+7 (___) ___-__-__   "></the-mask>
+<the-mask mask="+# (###)-###-##-##" value="7#######" type="tel" class="tel" masked="true" placeholder="+7 (___) ___-__-__   "></the-mask>
 <div class="policy">
 <div class="policy-text">
   
@@ -18,13 +18,15 @@
   <label for="myCheckbox2"></label>
   <span class="agree-check">Согласен с </span> политикой обработки персональных данных</div>
 </div>
-<a href="/auth2">
-<button @click="nextStep()" id="get-password">Получить пароль по смс</button></a>
+<router-link to="/auth2">
+ <!-- // AXIOS POST  button @click="nextStep()" -->
+<button @click="nextStep()"  id="get-password">Получить пароль по смс</button></router-link>
 </div>
 </template>
 
 <script>
 import {TheMask} from 'vue-the-mask'
+import axios from 'axios'
   export default {
      components: {TheMask},
     data: () => ({
@@ -90,12 +92,40 @@ import {TheMask} from 'vue-the-mask'
     }),
     methods: {
      nextStep() {
-            this.$emit('goToAuth2', false)
+      
+             let tel = document.querySelector('.tel').value.replace(/[^A-Za-z0-9]/g, "")
+             console.log(tel )
+   var data = 'msisdn=' + tel
+var config = {
+  method: 'post',
+  url: 'https://api.sabeel.credo.ru:5543/api/auth',
+  headers: { 
+    'Authorization': 'Basic bW9iaWxlYXBwOlZvd29vOHpvb0o=', 
+    'Content-Type': 'application/x-www-form-urlencoded', 
+    // 'Cookie': 'PHPSESSID=is27vo0pktqr3qcjnkqru2q9ca'
+  },
+  data : data
+};
+
+axios(config)
+.then(function (response) {
+  console.log(JSON.stringify(response.data));
+})
+.catch(function (error) {
+  console.log(error);
+});
+
         }
-    }
+    },
+    // updated() {
+    //  console.log(document.querySelector('.tel').value) 
+    // }
   }
 </script>
 <style scoped>
+#get-password{
+  margin-bottom: 20%;
+}
 input.checkbox{ 
   opacity: 0;
   /* margin: 5px; */
@@ -121,12 +151,19 @@ label::before {
     background-image: url('../assets/checked.svg');
 }
 .policy{
-  margin-left: 20px;
+  margin-left: 10%;
 }
 .policy-text{
   color: #CCB282;
 
-  margin-bottom: 10px;
+  margin-bottom: 6%;
   width: 300px;
+}
+.policy-text:last-child {
+  margin-bottom: 0;
+}
+.tel {
+  padding: 5% 23% !important;
+  font-size: 25px !important;
 }
 </style>

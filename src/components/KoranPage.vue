@@ -1,45 +1,91 @@
 <template>
 <div class="support-page">
+  <div @click="showMenu=false" v-if="showModal || showMenu || showNots || showShare" style="z-index: 999;;position:absolute;display:inline;top:-20%; left:0;width:100%; height:120vh;opacity:0.3;background-color:black;overflow-y:hidden"></div>
+<ul class="menu" v-if="showMenu" style="z-index: 10000;position:fixed; width:70%; right:0; bottom: 0; top: 0;background: white;">
+<li><router-link to="/news">Новости</router-link></li>
+<li><router-link to="/tranz">Транзакции</router-link></li>
+<li> <router-link to="/myconn">Моя связь</router-link> </li>
 
+<li><router-link to="/supportnav">Техподдержка</router-link></li>
+</ul>
+
+<div @click="showSelect=false" v-if="showSelect" style="z-index: 500;position:absolute;display:inline;top:-20%; left:0;width:100%; height:120vh;opacity:0.3;background-color:black;overflow-y:hidden"></div>
+<div v-if="showNots"  style="position:fixed; margin-top: 20%; z-index: 1000; box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+ top: 0; text-align: left; right: 0; bottom: 5%; height:min-content; width:80%; background-color: white; padding: 8% 5%; ">
+<img @click="showNots=false" style="position:absolute; right:5%" src="../assets/X.svg" alt="">
+
+<p style="
+font-family: 'Montserrat';
+font-style: normal;
+font-weight: 400;
+font-size: 11px;
+line-height: 13px;
+
+color: #000000; margin-bottom: 5%;">Последние непрочитанные уведомления</p>
+<div style="display:flex; border-bottom: 1px solid #DADADA; padding: 5% 0; gap:1%; z-index: 1000;">
+<div>
+  <p style="color: #2DA9A1; font-weight: 700;
+font-size: 9px;
+line-height: 11px;">Вопрос имаму</p>
+  <p style="font-weight: 400;
+font-size: 11px;
+line-height: 13px;
+
+color: #000000;">Получен ответ на вопрос имаму</p>
+</div>
+
+<p style="font-weight: 400;
+font-size: 9px;
+line-height: 11px;color: #363636;">15:30 - 02.03.2022</p>
+</div>
+<div style="display:flex; border-bottom: 1px solid #DADADA; padding: 5% 0; gap:1%; z-index: 1000;">
+<div>
+  <p style="color: #2DA9A1; font-weight: 700;
+font-size: 9px;
+line-height: 11px;">Вопрос имаму</p>
+  <p style="font-weight: 400;
+font-size: 11px;
+line-height: 13px;
+
+color: #000000;">Получен ответ на вопрос имаму</p>
+</div>
+
+<p style="font-weight: 400;
+font-size: 9px;
+line-height: 11px;color: #363636;">15:30 - 02.03.2022</p>
+</div>
+<router-link to="/nots"><p style="color:#39B2BA; text-align:right;font-size: 9px;
+line-height: 11px; margin-top:3%">Посмотреть все уведомления</p></router-link>
+
+</div>
 <header style="display: flex; justify-content:space-between;">
   <div class="header-mask"></div>
-    <a href="/profilenav">  <div class="user" style="display: flex">
+    <router-link to ="/profilenav">  <div class="user" style="display: flex">
     <img  :src="getUserIconPath()" alt="" class="user-icon">
 
     <p class="user-name">{{userName}}</p>
-  </div></a>
+  </div></router-link>
   <div class="controls" style="display: flex">
-    <img src="../assets/Gamburger.png" class="header-icon"/>
-        <a href="/supportnav">
-    <img @click="goSupport()" src="../assets/Gear.svg" alt="" class="header-icon"></a>
-    <img src="../assets/Bell.svg" alt="" class="header-icon">
+    <img @click="showMenu=true" src="../assets/Gamburger.png" class="header-icon"/>
+    <router-link to="/supportnav">
+    <img @click="goSupport()" src="../assets/Gear.svg" alt="" class="header-icon"></router-link>
+    <img @click="showNots=true" src="../assets/Bell.svg" alt="" class="header-icon">
   </div>
 </header>
 
-<a href="#" onClick="history.go(-1)"><div  class="back" @click="back()">
+<a href="#" onClick="javascript:history.go(-1); return false"><div  class="back" @click="back()">
 Коран
 </div></a>
 <div style="position:relative;" class="searchbar">
-    <input type="text">
-    <img style="position:absolute; top: 60%; right: 30%" src="../assets/loopa.svg" alt="">
-    <img style="margin-left: 10px" src="../assets/koranSettings.svg" alt="">
+    <input placeholder="Поиск" type="text">
+    <img style="position:absolute; top: 30%; right: 20%" src="../assets/loopa.svg" alt="">
+    <!-- <img @click="showSelect=true" style="margin-left: 10px" src="../assets/koranSettings.svg" alt=""> -->
 </div>
- <tabs :mode="mode">
-      <tab title="Содержание">
-          <ul>
-              <li><img src="../assets/Playbutton.svg" alt=""><p>1. Аль-Фатиха Открывающая (7)</p> <img src="../assets/like.svg" alt=""></li>
-          </ul>
-
-      </tab>
-      <tab title="Избранное">
 
 
-      </tab>
 
-    </tabs>
-
-    <div class="select">
-        <img src="../assets/X.svg" width="10" style="position:absolute; right:20px" alt="">
+    <div style="z-index: 1000; background-color: #fff; " v-if="showSelect" class="select">
+        <img @click="showSelect=false" src="../assets/X.svg" width="10" style="position:absolute; right:20px" alt="">
         <div class="select-item">
             <img src="../assets/reader.svg" alt="">
             <label for="">Выбор чтеца
@@ -68,20 +114,41 @@
     </div>
 
 
+ <tabs :mode="mode">
+      <tab title="Содержание">
+        <router-link to="/fullkoran">      <ul>
+              <li><p>1. Аль-Фатиха <span style="font-size: 10px;
+line-height: 10px;color: #2DA9A1;">Открывающая (7)</span> </p> <img src="../assets/like.svg" alt=""></li>
+<li><p>1. Аль-Фатиха <span style="font-size: 10px;
+line-height: 10px;color: #2DA9A1;">Открывающая (7)</span> </p> <img src="../assets/like.svg" alt=""></li>
+<li><p>1. Аль-Фатиха <span style="font-size: 10px;
+line-height: 10px;color: #2DA9A1;">Открывающая (7)</span> </p> <img src="../assets/like.svg" alt=""></li>
+          </ul></router-link>
+    
+
+      </tab>
+      <tab title="Избранное">
+
+
+      </tab>
+
+    </tabs>
+
+
 
 
 
 
 <footer style="display: flex; justify-content: space-between; padding: 5px 10px 10px 25px">
 <div class="left"> 
-  <a href="/koran"><img src="../assets/koran-black.svg" alt="" class="footer-koran footer-icon"></a>
- <a href="/imam"><img src="../assets/ask-active.svg" alt="" class="footer-question footer-icon"></a> 
+  <router-link to="/koran"><img src="../assets/koran-active.svg" alt="" class="footer-koran footer-icon"></router-link>
+ <router-link to="/imam"><img src="../assets/imam-footer.svg" alt="" class="footer-question footer-icon"></router-link> 
  </div>
- <a href="/main">
- <img src="../assets/menu-logo.svg" width="40" height="40" alt=""></a>
+ <router-link to="/main">
+ <img src="../assets/menu-logo.svg" width="40" height="40" alt=""></router-link>
 <div class="right">  
- <a href="/calend"><img src="../assets/Icon3.svg" alt="" class="footer-calend footer-icon" @click="openCalend()"></a>
- <a href="/blago"><img src="../assets/Icon4.svg" alt="" class="footer-blagos footer-icon"></a> 
+ <router-link to="/calend"><img src="../assets/Icon3.svg" alt="" class="footer-calend footer-icon" @click="openCalend()"></router-link>
+ <router-link to="/blago"><img src="../assets/Icon4.svg" alt="" class="footer-blagos footer-icon"></router-link> 
   </div>
 
 </footer>
@@ -99,7 +166,11 @@ import "vue-select/dist/vue-select.css";
     components:{Tabs, Tab},
     name: 'HelloWorld',
     data: () => ({
-
+       showMenu: false,
+      showModal:false,
+      showShare: false,
+      showNots:false,
+      showSelect: false,
       userName: 'Булат',
       userIconPath: 'https://upload.wikimedia.org/wikipedia/commons/9/99/Sample_User_Icon.png',
      
@@ -116,6 +187,23 @@ import "vue-select/dist/vue-select.css";
   }
 </script>
 <style scoped lang="scss">
+ul.menu {
+  list-style: none;
+  padding: 5%;
+  font-family: 'Montserrat';
+font-style: normal;
+font-weight: 500;
+font-size: 11px;
+color: black;
+  text-align: left;
+}
+ul.menu  li {
+  border-bottom: 0.5px solid #AFAFAF;
+  padding: 3%;
+}
+img {
+  justify-self: flex-end;
+}
 button {
     background: rgba(57, 178, 186, 0.2);
 box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -133,7 +221,9 @@ margin: 0 auto;
 color: #39B2BA;
 }
 .select {
-    margin: 10%;
+    margin: 30% 10%;
+    //  margin-top: 5%;
+  position: absolute;
     padding: 30px;
     box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
 border-radius: 5px;
@@ -181,7 +271,10 @@ ul {
 }
 ul li {
     display: flex;
+    padding: 2% 0;
+    border-bottom: 1px solid #DADADA;
     list-style: none;
+    justify-content: space-between;
     align-items: center;
     gap: 5%;
 
@@ -196,9 +289,16 @@ line-height: 16px;
 color: #000000;
 }
 .searchbar input {
-    background: #FFFFFF;
+   background: #FFFFFF;
 box-shadow: inset 0px 1px 4px rgba(0, 0, 0, 0.25);
 border-radius: 5px;
+width: 70%;
+padding: 3px;
+font-weight: 400;
+font-size: 12px;
+padding: 3%;
+line-height: 15px;
+color: #A8A8A8;
 // position: relative;
 }
 .searchbar {
@@ -225,7 +325,9 @@ position: relative;
 
 }
 
-
+.select {
+  z-index: 1000;
+}
 
 .user {
   display: flex;
@@ -281,7 +383,7 @@ footer{
   position: fixed;
   height: 55px;
   bottom: 0;
-  width: 375px;
+  width: 100%;
    left: 0;
   //  background-image: url('../assets/menu-logo.svg');
    background-position: center;
