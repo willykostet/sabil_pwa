@@ -397,7 +397,11 @@ line-height: 17px; color: white;}
   margin-top: 40%;
   background: white;
   // background-image: linear-gradient(rgba(57, 178, 186, 0.68), rgba(57, 178, 186, 0.68)), url("../assets/Pattern.png");
+<<<<<<< HEAD
   height: 150vh;
+=======
+  height: 130vh;
+>>>>>>> 68c8f908c666aa2a8b8497237e6669265d989041
   background-repeat: repeat;
     position: relative;
 }
@@ -660,8 +664,13 @@ color: white;
   border-bottom:  0.5px solid rgba(255, 255, 255, 0.5);
 }
 .namaz-header img {
+<<<<<<< HEAD
  margin: 0 2%;
  width: 90px;
+=======
+ margin: 0 3%;
+ width: 30%;
+>>>>>>> 68c8f908c666aa2a8b8497237e6669265d989041
 }
 
 .namaz-timeline ul {

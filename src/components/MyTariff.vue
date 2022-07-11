@@ -117,7 +117,11 @@ line-height: 12px;">20.07.2022</p>
 <div><img src="../assets/trubka.svg" alt=""> <p>200 СМС</p></div> 
 </div>
 
+<<<<<<< HEAD
 <div style="display:flex; gap:5px; padding:   5%;">
+=======
+<div style="display:flex; gap:5px; padding: 0 10%;">
+>>>>>>> 68c8f908c666aa2a8b8497237e6669265d989041
   <img src="../assets/call.svg" alt="">
   <h3 style="font-family: 'Montserrat';
 font-style: normal;
@@ -132,6 +136,7 @@ color: #000000;">Звонки</h3>
 
 
 
+<<<<<<< HEAD
         <div style="display:flex; justify-content: space-between; margin:  3%; border-bottom: 0.5px solid #AFAFAF; padding: 2%;"  >
           <p style="font-family: 'Montserrat';
 font-style: normal;
@@ -148,6 +153,22 @@ margin-top: 3%;
 font-size: 14px;
 line-height: 12px;
 ">50 минут</span>
+=======
+        <div style="display:flex; justify-content: space-between; margin:  0 4%; border-bottom: 0.5px solid #AFAFAF; padding: 2%;"  >
+          <p style="font-family: 'Montserrat';
+font-style: normal;
+font-weight: 400;
+font-size: 10px;
+text-align: left;
+line-height: 12px;color: #000000;">Звонки на все мобильные номера региона пребывания</p>
+          <p style="font-family: 'Montserrat';
+font-style: normal;
+text-align: left;
+font-weight: 700;
+font-size: 10px;
+line-height: 12px;
+">50 минут</p>
+>>>>>>> 68c8f908c666aa2a8b8497237e6669265d989041
         </div>
 
 

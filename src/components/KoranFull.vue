@@ -76,15 +76,22 @@ line-height: 11px; margin-top:3%">Посмотреть все уведомлен
 Коран
 </div></a>
 <div style="position:relative;" class="searchbar">
+<<<<<<< HEAD
    <input placeholder="Поиск" type="text">
     <img style="position:absolute; top: 30%; right: 20%" src="../assets/loopa.svg" alt="">
     <!-- <img @click="showSelect=true" style="margin-left: 10px" src="../assets/koranSettings.svg" alt=""> -->
+=======
+    <input type="text">
+    <img style="position:absolute; top: 60%; right: 30%" src="../assets/loopa.svg" alt="">
+    <img @click="showSelect=true" style="margin-left: 10px" src="../assets/koranSettings.svg" alt="">
+>>>>>>> 68c8f908c666aa2a8b8497237e6669265d989041
 </div>
  <div style="display: flex; padding: 5% 10%; justify-content: center;">
    <p>АЛЬ-ФАТИХА</p>
    <span>(ОТКРЫВАЮЩАЯ)</span>
  </div>
           <ul>
+<<<<<<< HEAD
               <li>
               <div> <h1>مِيِحَرلرا نِمَحْلرَّا هِللّا مِسْبِ</h1> <span style="font-size: 10px;
 line-height: 10px;color: black;">С именем Аллаха Милостивого, Милосердного!</span> </div> <img src="../assets/Number.svg" alt=""></li>
@@ -92,6 +99,15 @@ line-height: 10px;color: black;">С именем Аллаха Милостиво
 line-height: 10px;color: black;">С именем Аллаха Милостивого, Милосердного!</span> </div> <img src="../assets/Number.svg" alt=""></li>
 <li><div> <h1>مِيِحَرلرا نِمَحْلرَّا هِللّا مِسْبِ</h1> <span style="font-size: 10px;
 line-height: 10px;color: black;">С именем Аллаха Милостивого, Милосердного!</span> </div> <img src="../assets/Number.svg" alt=""></li>
+=======
+              <li><img src="../assets/Playbutton.svg" alt="">
+              <div> <h1>مِيِحَرلرا نِمَحْلرَّا هِللّا مِسْبِ</h1> <span style="font-size: 10px;
+line-height: 10px;color: black;">Открывающая (7)</span> </div> <img src="../assets/like.svg" alt=""></li>
+<li><img src="../assets/Playbutton.svg" alt=""> <div> <h1>مِيِحَرلرا نِمَحْلرَّا هِللّا مِسْبِ</h1> <span style="font-size: 10px;
+line-height: 10px;color: black;">Открывающая (7)</span> </div> <img src="../assets/like.svg" alt=""></li>
+<li><img src="../assets/Playbutton.svg" alt=""> <div> <h1>مِيِحَرلرا نِمَحْلرَّا هِللّا مِسْبِ</h1> <span style="font-size: 10px;
+line-height: 10px;color: black;">Открывающая (7)</span> </div> <img src="../assets/like.svg" alt=""></li>
+>>>>>>> 68c8f908c666aa2a8b8497237e6669265d989041
           </ul>
 
      
@@ -279,6 +295,7 @@ line-height: 16px;
 color: #000000;
 }
 .searchbar input {
+<<<<<<< HEAD
    background: #FFFFFF;
 box-shadow: inset 0px 1px 4px rgba(0, 0, 0, 0.25);
 border-radius: 5px;
@@ -289,6 +306,11 @@ font-size: 12px;
 padding: 3%;
 line-height: 15px;
 color: #A8A8A8;
+=======
+    background: #FFFFFF;
+box-shadow: inset 0px 1px 4px rgba(0, 0, 0, 0.25);
+border-radius: 5px;
+>>>>>>> 68c8f908c666aa2a8b8497237e6669265d989041
 // position: relative;
 }
 .searchbar {

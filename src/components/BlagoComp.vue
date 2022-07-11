@@ -232,6 +232,7 @@ ul li {
   padding: 3%;
 }
 .stats {
+<<<<<<< HEAD
   // text-transform: uppercase;
 font-family: 'Montserrat';
 font-style: normal;
@@ -243,6 +244,18 @@ border: 0.5px solid #39B2BA;
 margin: 5% 20%;
 padding: 5%;
 padding: 3%;
+=======
+  text-transform: uppercase;
+font-family: 'Montserrat';
+font-style: normal;
+font-weight: 400;
+font-size: 9px;
+line-height: 11px;
+border-radius: 5px;
+border: 0.5px solid #39B2BA;
+margin: 3% 10%;
+padding: 1%;
+>>>>>>> 68c8f908c666aa2a8b8497237e6669265d989041
 color: #39B2BA;
 
 }

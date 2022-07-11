@@ -77,6 +77,7 @@ line-height: 11px; margin-top:3%">Посмотреть все уведомлен
 Коран
 </div></a>
 <div style="position:relative;" class="searchbar">
+<<<<<<< HEAD
     <input placeholder="Поиск" type="text">
     <img style="position:absolute; top: 30%; right: 20%" src="../assets/loopa.svg" alt="">
     <!-- <img @click="showSelect=true" style="margin-left: 10px" src="../assets/koranSettings.svg" alt=""> -->
@@ -84,6 +85,15 @@ line-height: 11px; margin-top:3%">Посмотреть все уведомлен
 
 
 
+=======
+    <input type="text">
+    <img style="position:absolute; top: 60%; right: 30%" src="../assets/loopa.svg" alt="">
+    <img @click="showSelect=true" style="margin-left: 10px" src="../assets/koranSettings.svg" alt="">
+</div>
+
+
+
+>>>>>>> 68c8f908c666aa2a8b8497237e6669265d989041
     <div style="z-index: 1000; background-color: #fff; " v-if="showSelect" class="select">
         <img @click="showSelect=false" src="../assets/X.svg" width="10" style="position:absolute; right:20px" alt="">
         <div class="select-item">
@@ -117,11 +127,19 @@ line-height: 11px; margin-top:3%">Посмотреть все уведомлен
  <tabs :mode="mode">
       <tab title="Содержание">
         <router-link to="/fullkoran">      <ul>
+<<<<<<< HEAD
               <li><p>1. Аль-Фатиха <span style="font-size: 10px;
 line-height: 10px;color: #2DA9A1;">Открывающая (7)</span> </p> <img src="../assets/like.svg" alt=""></li>
 <li><p>1. Аль-Фатиха <span style="font-size: 10px;
 line-height: 10px;color: #2DA9A1;">Открывающая (7)</span> </p> <img src="../assets/like.svg" alt=""></li>
 <li><p>1. Аль-Фатиха <span style="font-size: 10px;
+=======
+              <li><img src="../assets/Playbutton.svg" alt=""><p>1. Аль-Фатиха <span style="font-size: 10px;
+line-height: 10px;color: #2DA9A1;">Открывающая (7)</span> </p> <img src="../assets/like.svg" alt=""></li>
+<li><img src="../assets/Playbutton.svg" alt=""><p>1. Аль-Фатиха <span style="font-size: 10px;
+line-height: 10px;color: #2DA9A1;">Открывающая (7)</span> </p> <img src="../assets/like.svg" alt=""></li>
+<li><img src="../assets/Playbutton.svg" alt=""><p>1. Аль-Фатиха <span style="font-size: 10px;
+>>>>>>> 68c8f908c666aa2a8b8497237e6669265d989041
 line-height: 10px;color: #2DA9A1;">Открывающая (7)</span> </p> <img src="../assets/like.svg" alt=""></li>
           </ul></router-link>
     
