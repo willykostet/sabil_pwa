@@ -1,4 +1,5 @@
 import Vue from 'vue'
+import axios from 'axios'
 import VueRouter from 'vue-router'
 import AuthStep2 from '../components/AuthStep2.vue'
 import AuthStep3 from '../components/AuthStep3.vue'
@@ -103,16 +104,74 @@ const routes = [
   {
     path: '/auth2',
     component: AuthStep2,
-    beforeEnter: (to, from, next) => {
-     if (store.getters.getNumberOk == false) {return false} else {next()}
+  beforeEnter:   (  to, from, next) => {
+     
+    let tel = document.querySelector('.tel').value.replace(/[^A-Za-z0-9]/g, "")
+    console.log(tel )
+var data = 'msisdn=' + tel
+var config = {
+method: 'post',
+url: 'https://api.sabeel.credo.ru:5543/api/auth',
+headers: { 
+'Authorization': 'Basic bW9iaWxlYXBwOlZvd29vOHpvb0o=', 
+'Content-Type': 'application/x-www-form-urlencoded', 
+// 'Cookie': 'PHPSESSID=is27vo0pktqr3qcjnkqru2q9ca'
+},
+data : data
+};
+
+axios(config)
+.then(function (response) {
+console.log(JSON.stringify(response.data));
+if (response.data.ok) { next()}
+
+})
+.catch(function (error) {
+  console.log(error)
+  return false
+
+});
+     
+
+
+
     }
   },
   {
     path: '/auth3',
     component: AuthStep3,
-    beforeEnter: (to, from, next) => {
-     if (store.getters.getLogined == false) {return false} else {next()}
-    }
+    beforeEnter:   (  to, from, next) => {
+      let tel2 = document.getElementsByTagName('input')[0].value.replace(/[^A-Za-z0-9]/g, "")
+      console.log(tel2 )
+  var data2 = 'token=' + tel2
+
+  var config2 = {
+  method: 'post',
+  url: 'https://api.sabeel.credo.ru:5543/api/auth',
+  headers: { 
+  'Authorization': 'Basic bW9iaWxlYXBwOlZvd29vOHpvb0o=', 
+  'Content-Type': 'application/x-www-form-urlencoded', 
+  // 'Cookie': 'PHPSESSID=is27vo0pktqr3qcjnkqru2q9ca'
+  },
+  data : data2
+  };
+  
+  axios(config2)
+  .then(function (response) {
+  console.log(JSON.stringify(response.data));
+  if (response.data.ok) { next()}
+  
+  })
+  .catch(function (error) {
+    console.log(error)
+    return false
+  
+  });
+       
+  
+  
+  
+      }
   },
   {
     path: '/main',

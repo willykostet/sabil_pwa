@@ -5,7 +5,7 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    numberOk: true,
+    numberOk: false,
     tokenOk: true,
     pinOk: true,
     logined: true,
@@ -24,7 +24,10 @@ export default new Vuex.Store({
   mutations: {
     SET_LOGINED (state, logined) {
       state.logined = logined
-    }
+    },
+    SET_NUMBER (state, numberOk) {
+      state.numberOk = numberOk
+    },
   },
   actions: {
     // updateLogined({ state, commit }) {

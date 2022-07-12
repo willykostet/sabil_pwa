@@ -18,13 +18,16 @@
   <label for="myCheckbox2"></label>
   <span class="agree-check">Согласен с </span> политикой обработки персональных данных</div>
 </div>
-<router-link to="/auth2">
+<!-- // @click="nextStep" -->
+<div ><router-link  to="/auth2">
  <!-- // AXIOS POST  button @click="nextStep()" -->
-<button @click="nextStep()"  id="get-password">Получить пароль по смс</button></router-link>
+<button  id="get-password">Получить пароль по смс</button></router-link></div>
+
 </div>
 </template>
 
 <script>
+import store from '../store/index'
 import {TheMask} from 'vue-the-mask'
 import axios from 'axios'
   export default {
@@ -90,7 +93,7 @@ import axios from 'axios'
         },
       ],
     }),
-    methods: {
+   methods: {
      nextStep() {
       
              let tel = document.querySelector('.tel').value.replace(/[^A-Za-z0-9]/g, "")
@@ -107,9 +110,12 @@ var config = {
   data : data
 };
 
-axios(config)
+ axios(config)
 .then(function (response) {
   console.log(JSON.stringify(response.data));
+  if (response.data.ok) { store.commit("SET_NUMBER", response.data.ok);}
+ 
+  
 })
 .catch(function (error) {
   console.log(error);
